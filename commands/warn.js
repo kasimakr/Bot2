@@ -28,7 +28,7 @@ module.exports.run = async (bot, message, args) => {
     .setAuthor("Warnings", "https://raw.githubusercontent.com/kasimakr/DiscordBot32312514/master/assets/Akrr.png")
     .addField("User", wUser)
     .addField("Reason:", reason)
-    .addField("Current Warnings", warns[wUser.id].warns)
+    .addField("Total Warnings", warns[wUser.id].warns)
     .setColor("BLUE")
     .setFooter("Version: 1.0.5")
   
