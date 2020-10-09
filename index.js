@@ -20,10 +20,6 @@ fs.readdir("./commands/", (err, files) => {
 	});
 });
 
-bot.on("ready", async () => {
-	console.log(`${bot.user.username} is online!`);
-	bot.user.setActivity("your empire | ?help", { type: "WATCHING" });
-});
 
 bot.on("message", async message => {
 	if (!message.content.startsWith(botconfig.prefix) || message.author.bot)
@@ -39,4 +35,4 @@ bot.on("message", async message => {
 	if (commandfile) commandfile.run(bot, message, args);
 });
 
-bot.login('YOUR_TOKEN');
+bot.login('ok');
