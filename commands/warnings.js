@@ -5,10 +5,10 @@ const sendError = require("../util/error");
 let warns = JSON.parse(fs.readFileSync("./warnings.json", "utf8")); //We use this so that it knows what the database is. We'll be using a JSON database.
 
 module.exports.run = async (bot, message, args) => {
-  if (!message.member.hasPermission("KICK_MEMBERS")) return message.channel.send("You are not allowed to run that command!"); //Checks to see if the user has permission to warn members.
+  if (!message.member.hasPermission("KICK_MEMBERS")) return sendError("You are not allowed to run that command!", message.channel, message.react('759498707774734407')); //Checks to see if the user has permission to warn members.
 
   let wUser = message.guild.member(message.mentions.users.first()) || message.guild.members.cache.get(args[0]); //This enables us to know what member we want to warn.
-  if (!wUser) return message.channel.send("Please mention a valid member in this server."); //This will make sure we mention a user.
+  if (!wUser) return sendError("Please mention a person.", message.channel, message.react('759498707774734407'));
   if (wUser.hasPermission("KICK_MEMBERS")) return sendError("Members role is above mine.", message.channel, message.react('759498707774734407')); //This will prevent staff members warning each other.
 
   let reason = args.join(" ").slice(22);
