@@ -9,7 +9,7 @@ module.exports.run = async (bot, message, args) => {
 
   const deleteCount = parseInt(args[0], 10); //This will get the number of messages we want to delete as an integer.
   if (!deleteCount || deleteCount < 0 || deleteCount > 10000000000) //This makes sure that the minimum amount of messages we can delete is 2, and the max is 100. You can change this if you want.
-    return sendTPemplate("Please specify a amount you would like to delete.", message.channel, message.react('759498707774734407'));
+    return sendError("Please specify a amount you would like to delete.", message.channel, message.react('759498707774734407'));
   message.channel
     .bulkDelete(deleteCount) //This will delete the specified number of messages.
     .catch(error =>
