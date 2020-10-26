@@ -66,4 +66,4 @@ function xp(message) {
 
 
 
-client.login('NzMzMTQ5ODE0MTc0MjUzMTE2.Xw-8-A.wiEtFZNm3T6JfgYZgSPzJvxPShU');
+client.login('NzM\PzJvxPShU');
