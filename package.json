@@ -28,7 +28,7 @@
     "discord.js-commando": "^0.10.0",
     "quick.db": "^7.1.2",
     "node-fetch": "^2.6.1",
-    "canvacord": "^5.0.6",
+    "canvacord": "^5.0.7",
     "hastebin-gen": "^2.0.5"
   }
 }
