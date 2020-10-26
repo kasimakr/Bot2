@@ -1,5 +1,5 @@
 {
-  "name": "AkrBot",
+  "name": "Bot2",
   "version": "3.0.0",
   "description": "FunBot",
   "main": "index.js",
@@ -12,15 +12,23 @@
   },
   "dependencies": {
     "@discordjs/opus": "^0.3.2",
-    "discord.js": "^12.3.1",
+    "discord.js": "^12.4.0",
     "dotenv": "^8.2.0",
     "ffmpeg": "0.0.4",
     "ffmpeg-static": "^4.2.7",
-    "yt-search": "^2.3.3",
-    "ytdl-core": "^3.4.0",
+    "cjs": "^0.0.11",
+    "ytdl-core": "^4.0.0",
     "opusscript": "^0.0.7",
     "node-opus": "^0.3.3",
     "ms": "^2.1.2",
-    "fs": "^0.0.2"
+    "fs": "^0.0.2",
+    "moment": "^2.29.1",
+    "dateformat": "^3.0.3",
+    "utf8": "^3.0.0",
+    "discord.js-commando": "^0.10.0",
+    "quick.db": "^7.1.2",
+    "node-fetch": "^2.6.1",
+    "canvacord": "^5.0.6",
+    "hastebin-gen": "^2.0.5"
   }
 }
