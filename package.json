@@ -1,7 +1,7 @@
 {
-  "name": "Bot2",
+  "name": "advanced-discord-music-bot",
   "version": "3.0.0",
-  "description": "FunBot",
+  "description": "Hello",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
@@ -11,10 +11,10 @@
     "node": "12.x"
   },
   "dependencies": {
-    "@discordjs/opus": "^0.3.2",
+     "@discordjs/opus": "^0.3.2",
     "discord.js": "^12.4.0",
     "discord.js-commando": "^0.10.0",
-    "better-sqlite3": "^7.1.0"
+    "better-sqlite3": "^7.1.0",
     "ytdl-core": "^4.0.0",
     "opusscript": "^0.0.7",
     "ms": "^2.1.2",
