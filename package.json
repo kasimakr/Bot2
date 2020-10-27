@@ -1,7 +1,7 @@
 {
-  "name": "advanced-discord-music-bot",
+  "name": "Bot2",
   "version": "3.0.0",
-  "description": "Hello",
+  "description": "FunBot",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
@@ -11,10 +11,11 @@
     "node": "12.x"
   },
   "dependencies": {
-     "@discordjs/opus": "^0.3.2",
+    "@discordjs/opus": "^0.3.2",
     "discord.js": "^12.4.0",
-    "discord.js-commando": "^0.10.0",
     "better-sqlite3": "^7.1.0",
+    "ffmpeg": "^0.0.4",
+    "ffmpeg-static": "^4.2.7",
     "ytdl-core": "^4.0.0",
     "opusscript": "^0.0.7",
     "ms": "^2.1.2",
@@ -23,6 +24,7 @@
     "moment": "^2.29.1",
     "dateformat": "^3.0.3",
     "utf8": "^3.0.0",
+    "discord.js-commando": "^0.10.0",
     "quick.db": "^7.1.2",
     "hastebin-gen": "^2.0.5",
     "canvacord": "^5.0.6"
