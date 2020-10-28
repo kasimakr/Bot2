@@ -4,7 +4,7 @@ const { MessageEmbed } = require("discord.js");
 module.exports.run = async (bot, message, args) => {
 const embed = new MessageEmbed()
 .setAuthor('Setup', 'https://raw.githubusercontent.com/kasimakr/DiscordBot32312514/master/assets/Akrr.png', 'https://discord.gg/KPRR8hE')
-.setColor('#f7f7f7')
+.setColor('BLUE')
 .addField('**Intro**', 'Welcome! Thanks for adding me, Im **Kasim Akr** and I can do alot of commands!', 'https://discord.gg/KPRR8hE')
 .addField('**Prefix**', 'My prefix is  ``;``', 'https://discord.gg/KPRR8hE')
 .addField('**Permissions**', 'To ensure the bot can do all the moderation and music commands please ensure we have the permissions', 'https://discord.gg/KPRR8hE')
