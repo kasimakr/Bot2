@@ -31,17 +31,15 @@ module.exports = {
       Time: ms(args[0]),
     });
     message.channel.send(
-      `${message.author.tag} you have set a timer for ${args[0]} (${ms(
-        args[0]
-      )}MS). Check your dm's`
+      `I have set a timer for ${args[0]} <@!${message.author.id}>. I will send a dm once the timer has completed.`
     );
     setTimeout(() => {
       let Embed = new MessageEmbed()
         .setAuthor("Timer Finished", "https://raw.githubusercontent.com/kasimakr/DiscordBot32312514/master/assets/Akrr.png")
         .setDescription(
-          `Your timer for ${args[0]} (${ms(args[0])}MS) has finished!`
+          `Hey <@!${message.author.id}>, Youre timer for ${args[0]} has finished.`
         )
-        .setColor(`GREEN`);
+        .setColor(`BLUE`);
       message.author.send(Embed);
       Timers.delete(message.author.id + " G " + message.guild.name);
     }, ms(args[0]));
