@@ -22,7 +22,7 @@ module.exports = {
       );
     let prize = args.slice(2).join(" ");
     if (!prize) return message.channel.send(`No prize specified!`);
-    message.channel.send(`*Giveaway created in ${channel}*`);
+    message.channel.send(`Giveaway created in ${channel}`);
     let Embed = new MessageEmbed()
       .setAuthor("New Giveaway!", "https://raw.githubusercontent.com/kasimakr/DiscordBot32312514/master/assets/Akrr.png")
       .setDescription(
