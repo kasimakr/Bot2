@@ -10,7 +10,7 @@ module.exports = {
     if (User == null) {
       return sendError("Please mention a person. Example ;report <@!733149814174253116> Being Mean", message.channel, message.react('759498707774734407'));
     } else {
-      let Reason = message.content.replace(';report',' ');
+      let Reason = message.content.slice(";" + 22 + 7) || null;
       if (Reason == null) {
         return sendError("Please give a reason to report", message.channel, message.react('759498707774734407'));
       }
@@ -27,7 +27,8 @@ module.exports = {
         )
         .setColor(`RED`)
         .setThumbnail(Avatar) 
-        .setFooter("Version: 1.0.5")
+       .setTimestamp()
+       .setFooter("Start a support ticket if you have any issues!")
         .addFields(
           { name: "Reason", value: `${Reason.slice(1)}`, inline: true },
           {
@@ -35,8 +36,6 @@ module.exports = {
             value: `${new Intl.DateTimeFormat("en-US").format(Date.now())}`,
             inline: true,
           }
-          .setTimestamp()
-          .setFooter("Start a support ticket if you have any issues!")
         );
       Channel.send(Embed);
     }
