@@ -1,32 +1,25 @@
-const Discord = require("discord.js");
 
-const client = new Discord.Client({
-	partials: ["MESSAGE", "CHANNEL", "REACTION"]
-});
+const Discord = require("discord.js");
+const client = new Discord.Client();
 const fs = require("fs");
-client.commands = new Discord.Collection();
 
 client.db = require("quick.db");
 client.commands = new Discord.Collection();
 client.cooldown = new Discord.Collection();
 client.config = {
-    TOKEN: "Nz2SfX4",
+    TOKEN: "NzMzPsC2FSfX4",
     prefix: ";",
     cooldown: 15000
 };
 
+// Load Commands
 fs.readdir("./commands/", (err, files) => {
-	if (err) console.log(err);
-	let jsfile = files.filter(f => f.split(".").pop() === "js");
-	if (jsfile.length <= 0) {
-		console.log("Couldn't find commands.");
-		return;
-	}
-	jsfile.forEach((f, i) => {
-		let props = require(`./commands/${f}`);
-		console.log(`${f} loaded.`);
-		client.commands.set(props.help.name, props);
-	});
+    if (err) return console.error(err);
+    files.forEach(f => {
+        if (!f.endsWith(".js")) return;
+        let command = require(`./commands/${f}`);
+        client.commands.set(command.help.name, command);
+    });
 });
 
 // Events
@@ -58,12 +51,11 @@ function xp(message) {
         let lvl = client.db.get(`level_${message.author.id}`) || client.db.set(`level_${message.author.id}`,1);;
         if (level > lvl) {
             let newLevel = client.db.set(`level_${message.author.id}`,level);
-            message.channel.send(` ${message.author.toString()}, You just advanced to level ${newLevel}! Lets celebrate :tada: `);
+            message.channel.send(`:tada: ${message.author.toString()}, You just advanced to level ${newLevel}!`);
         }
         client.cooldown.set(`${message.author.id}`, Date.now());
     }
 }
 
-
-
-client.login('Nz2FSfX4');
+client.login(client.config.TOKEN);
+client.login('NzMzMTQ5ODEPsC2FSfX4');
