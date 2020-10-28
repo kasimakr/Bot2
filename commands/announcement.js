@@ -18,7 +18,7 @@ module.exports = {
     
       .setTitle(`New announcement!`)
       .setDescription(`${Reason}`)
-      .setColor("RANDOM");
+      .setColor("BLUE");
     rChannel.send(_);
     message.delete();
   },
