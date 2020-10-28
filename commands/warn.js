@@ -1,56 +1,41 @@
-const { MessageEmbed } = require("discord.js");
-let questions = [
-  {
-    title: "Best programming language",
-    options: ["JavaScript", "Python", "Ruby", "Rust"],
-    correct: 1,
-  },
-  {
-    title: "Best Bot On Discord",
-    options: ["Mee6", "KasimAkr", "Dyno", "Carl-Bot"],
-    correct: 2,
-  },
-    {
-    title: "What is the capital of Cuba?",
-    options: ["Bauta", "Pablito", "Havana", "Mariel"],
-    correct: 3,
-  },
-];
-module.exports = {
-  name: "trivia",
-  run: async (bot, message, args) => {
-    let q = questions[Math.floor(Math.random() * questions.length)];
-    let i = 0;
-    const Embed = new MessageEmbed()
-      .setTitle(q.title, "https://raw.githubusercontent.com/kasimakr/DiscordBot32312514/master/assets/Akrr.png")
-      .setDescription(
-        q.options.map((opt) => {
-          i++;
-          return `${i} - ${opt}\n`;
-        })
-      )
-      .setColor(`GREEN`)
-      .setFooter(
-        `Reply to this message with the correct question number! You have 15 seconds.`
-      );
-    message.channel.send(Embed);
-    try {
-      let answer = message.content.replace(';trivia',' ');
-      let msgs = await message.channel.awaitMessages(
-        (u2) => u2.author.id === message.author.id,
-        { time: 15000, max: 1, errors: ["time"] }
-      );
-      if (parseInt(answer.content) == q.correct) {
-        return message.channel.send(`You got it correct!`);
-      } else {
-        return message.channel.send(`You got it incorrect.`);
-      }
-    } catch (e) {
-      return message.channel.send(`You did not answer!`);
-    }
-  },
+const Discord = require("discord.js");
+const fs = require("fs");
+const ms = require("ms");
+const sendError = require("../util/error");
+let warns = JSON.parse(fs.readFileSync("./warnings.json", "utf8")); //We use this so that it knows what the database is. We'll be using a JSON database.
+
+module.exports.run = async (bot, message, args) => {
+  if (!message.member.hasPermission("KICK_MEMBERS")) return sendError("You do not have the suffincient permission to warn", message.channel, message.react('759498707774734407')); //Checks to see if the user has permission to warn members.
+
+  let wUser = message.guild.member(message.mentions.users.first()) || message.guild.members.cache.get(args[0]); //This enables us to know what member we want to warn.
+  if (!wUser) return sendError("Please mention a person. Example ;warn <@!733149814174253116> Shitsposting", message.channel, message.react('759498707774734407'));
+  if (wUser.hasPermission("KICK_MEMBERS")) return sendError("Members role is above mine.", message.channel, message.react('759498707774734407')); //This will prevent staff members warning each other.
+
+  let reason = args.join(" ").slice(22);
+  if (!reason) reason = "Unspecified Reason."; //This sets the reason as no reason specified if we dont include a reason.
+
+  if (!warns[wUser.id])warns[wUser.id] = {
+    warns: 0
+  }; //This sets the default number of warnings as 0.
+
+  warns[wUser.id].warns++; //This will add 1 warning each time we use the command.
+
+  fs.writeFile("./warnings.json", JSON.stringify(warns), err => {
+    if (err) console.log(err);
+  }); //This will edit the warnings.json file.
+
+  let warnembed = new Discord.MessageEmbed() //This is our embed.
+    .setAuthor("Warnings", "https://raw.githubusercontent.com/kasimakr/DiscordBot32312514/master/assets/Akrr.png")
+    .addField("User", wUser)
+    .addField("Reason:", reason)
+    .addField("Total Warnings", warns[wUser.id].warns)
+    .setColor("BLUE")
+    .setTimestamp()
+    .setFooter("Version: 1.0.5")
+  
+  message.channel.send(warnembed); //This sends our embed.
 };
 
 module.exports.help = {
-    name: "trivia"
+  name: "warn"
 };
