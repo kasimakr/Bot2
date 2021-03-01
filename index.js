@@ -29,6 +29,7 @@ client.once("ready", () => {
 
 client.on("error", console.error);
 
+
 client.on("warn", console.warn);
 
 client.on("message", async (message) => {
@@ -43,6 +44,15 @@ client.on("message", async (message) => {
     if (!commandFile) return;
     commandFile.run(client, message, args);
 });
+
+client.on("ready", async () => {
+  const upchannel = bot.channels.cache.get('815766160728653874')
+  const upembed = new Discord.MessageEmbed()
+  .setThumbnail(bot.user.avatarURL())
+  .setTitle("Bot restart Notification")
+  .setDescription("Bot has restarted and is running :D")
+  upchannel.send(upembed)
+})
 
 function xp(message) {
     if (!client.cooldown.has(`${message.author.id}`) || !(Date.now() - client.cooldown.get(`${message.author.id}`) > client.config.cooldown)) {
