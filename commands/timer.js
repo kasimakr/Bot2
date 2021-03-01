@@ -37,9 +37,11 @@ module.exports = {
       let Embed = new MessageEmbed()
         .setAuthor("Timer Finished", "https://raw.githubusercontent.com/kasimakr/DiscordBot32312514/master/assets/Akrr.png")
         .setDescription(
-          `Hey <@!${message.author.id}>, Youre timer for ${args[0]} has finished.`
+          `Hey <@!${message.author.id}>, Youre timer for ${args[0]} has finished!`
         )
-        .setColor(`BLUE`);
+        .setFooter(`Requested By: ${message.author.tag}`, `${message.author.displayAvatarURL()}`)
+        .setTimestamp()
+        .setColor('#f7f7f7');
       message.author.send(Embed);
       Timers.delete(message.author.id + " G " + message.guild.name);
     }, ms(args[0]));
