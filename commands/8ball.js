@@ -22,7 +22,7 @@ module.exports = {
         .setDescription(`Your question: ${question}\nMy reply: ${Response}`)
         .setFooter(`Requested By: ${message.author.tag}`, `${message.author.displayAvatarURL()}`)
         .setTimestamp()
-        .setColor('BLUE');
+        .setColor('#f7f7f7');
       
       message.channel.send(Embed);
     }
