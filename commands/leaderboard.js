@@ -4,7 +4,7 @@ module.exports.run = async (client, message, args) => {
     let data = client.db.all().filter(i => i.ID.startsWith("xp_")).sort((a, b) => b.data - a.data);
     if (data.length < 1) return message.channel.send("No leaderboard");
     let myrank = data.map(m => m.ID).indexOf(`xp_${message.author.id}`) + 1 || "N/A";
-    data.length = 20;
+    data.length = 25;
     let lb = [];
     for (let i in data)  {
         let id = data[i].ID.split("_")[1];
@@ -24,7 +24,7 @@ module.exports.run = async (client, message, args) => {
     };
 
     const embed = new MessageEmbed()
-    .setAuthor("Warnings", "https://raw.githubusercontent.com/kasimakr/DiscordBot32312514/master/assets/Akrr.png")
+    .setAuthor("LeaderBoard", "https://raw.githubusercontent.com/kasimakr/DiscordBot32312514/master/assets/Akrr.png")
    .setColor('#f7f7f7')
     lb.forEach(d => {
         embed.addField(`${d.rank} Place → ${d.user.tag} `, `**Level** → ${d.level}\n**XP** → ${d.xp} / ${d.xpreq}`);
