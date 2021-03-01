@@ -31,6 +31,7 @@ module.exports.run = async (client, message, args) => {
     });
     embed.setTimestamp()
     embed.setFooter(`Your Position: ${myrank} | Requested by: ${message.author.tag}`);
+    embed.setTimestamp()
     return message.channel.send(embed);
 };
 
