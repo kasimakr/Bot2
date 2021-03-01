@@ -20,7 +20,10 @@ module.exports = {
       let Embed = new MessageEmbed()
         .setAuthor("8Ball", "https://raw.githubusercontent.com/kasimakr/DiscordBot32312514/master/assets/Akrr.png")
         .setDescription(`Your question: ${question}\nMy reply: ${Response}`)
+        .setFooter(`Requested By: ${message.author.tag}`, `${message.author.displayAvatarURL()}`)
+        .setTimestamp()
         .setColor('BLUE');
+      
       message.channel.send(Embed);
     }
   },
