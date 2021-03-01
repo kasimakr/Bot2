@@ -10,7 +10,9 @@ if(!ip) return message.reply('¡Debes colocar una ip de un servidor de minecraft
     .then((response) => {
         const embed = new Discord.MessageEmbed()
         .setDescription(`Ip de el servidor: ${response.host}\nUsuarios conectados: ${response.onlinePlayers}\nMáximo de jugadores: ${response.maxPlayers}\nVersión: ${response.version}`)
-        .setColor('RANDOM')
+        .setFooter(`Requested By: ${message.author.tag}`, `${message.author.displayAvatarURL()}`)
+        .setTimestamp()
+        .setColor('#f7f7f7');
         message.channel.send(embed);
     });    
 }
