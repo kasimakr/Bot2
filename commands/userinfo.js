@@ -95,3 +95,6 @@ module.exports = {
         message.channel.send(embed)
     }
 }
+module.exports.help = {
+  name: "userinfo"
+};
