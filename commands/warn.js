@@ -30,8 +30,8 @@ module.exports.run = async (bot, message, args) => {
     .addField("Reason:", reason)
     .addField("Total Warnings", warns[wUser.id].warns)
     .setColor("BLUE")
+    .setFooter(`Requested By: ${message.author.tag}`, `${message.author.displayAvatarURL()}`)
     .setTimestamp()
-    .setFooter("Version: 1.0.5")
   
   message.channel.send(warnembed); //This sends our embed.
 };
