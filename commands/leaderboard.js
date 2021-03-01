@@ -30,7 +30,7 @@ module.exports.run = async (client, message, args) => {
         embed.addField(`${d.rank} Place → ${d.user.tag} `, `**Level** → ${d.level}\n**XP** → ${d.xp} / ${d.xpreq}`);
     });
     embed.setTimestamp()
-    embed.setFooter(`Your Position: ${myrank} | Start a support ticket if you have any issues or concerns.`);
+    embed.setFooter(`Your Position: ${myrank} | Requested by: ${message.author.tag}`);
     return message.channel.send(embed);
 };
 
