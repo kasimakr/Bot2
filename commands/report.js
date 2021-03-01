@@ -27,8 +27,8 @@ module.exports = {
         )
         .setColor(`RED`)
         .setThumbnail(Avatar) 
-       .setTimestamp()
-       .setFooter("Start a support ticket if you have any issues!")
+        .setFooter(`Requested By: ${message.author.tag}`, `${message.author.displayAvatarURL()}`)
+        .setTimestamp()
         .addFields(
           { name: "Reason", value: `${Reason.slice(1)}`, inline: true },
           {
