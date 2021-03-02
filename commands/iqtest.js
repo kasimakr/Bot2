@@ -25,6 +25,7 @@ module.exports = {
         };
     },
 };
+
 module.exports.help = {
-    name: "iqtest"
+  name: "iqtest"
 };
