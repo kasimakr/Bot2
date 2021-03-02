@@ -96,5 +96,5 @@ module.exports = {
     }
 }
 module.exports.help = {
-  name: "userinfo"
+  name: "userinfoo"
 };
