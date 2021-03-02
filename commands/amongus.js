@@ -26,6 +26,7 @@ message.channel.send(codeembed)
 })
    }
 }
+
 module.exports.help = {
   name: "amongus"
 };
