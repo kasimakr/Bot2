@@ -16,5 +16,5 @@ module.exports = {
 }
 
 module.exports.help = {
-    name: "poll"
+  name: "poll"
 };
