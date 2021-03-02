@@ -39,5 +39,5 @@ module.exports = {
 }
 
 module.exports.help = {
-    name: "quote"
+  name: "quote"
 };
