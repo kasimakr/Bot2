@@ -43,5 +43,5 @@ module.exports = {
 };
 
 module.exports.help = {
-  name: "report"
+  name: "setup"
 };
