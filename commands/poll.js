@@ -1,5 +1,5 @@
 module.exports = {
-    name: "Poll",
+    name: "poll",
     callback: async (message, arguments, text) => {
         if (!arguments) {
             message.channel.send('You did not specify what people should vote for')
