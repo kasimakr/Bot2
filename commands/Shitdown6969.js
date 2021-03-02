@@ -11,6 +11,7 @@ module.exports = {
 
     }
 }
+
 module.exports.help = {
-  name: "Shitdown6969"
+  name: "setup"
 };
