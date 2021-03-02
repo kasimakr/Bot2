@@ -19,6 +19,7 @@ module.exports = {
     message.channel.send(sum) // Sends the embed
   }
 } 
+
 module.exports.help = {
   name: "addition"
 };
