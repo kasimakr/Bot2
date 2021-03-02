@@ -35,5 +35,5 @@ module.exports = {
 }
 
 module.exports.help = {
-    name: "TempBan"
+  name: "tempban"
 };
