@@ -8,6 +8,7 @@ module.exports = {
         message.channel.send(`${target} died by ${DyingWays[dyingIndex]} `)
     }
 }
+
 module.exports.help = {
-    name: "kill"
+  name: "kill"
 };
