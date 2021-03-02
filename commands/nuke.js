@@ -21,6 +21,7 @@ if(!message.member.hasPermission('ADMINISTRATOR') return message.channel.send('n
     }
 
 }
+
 module.exports.help = {
   name: "nuke"
 };
