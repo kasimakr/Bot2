@@ -46,9 +46,9 @@ client.on("message", async (message) => {
 });
 
 client.on("ready", async () => {
-  const upchannel = bot.channels.cache.get('815766160728653874')
+  const upchannel = client.channels.cache.get('815766160728653e74')
   const upembed = new Discord.MessageEmbed()
-  .setThumbnail(bot.user.avatarURL())
+  .setThumbnail(client.user.avatarURL())
   .setTitle("Bot restart Notification")
   .setDescription("Bot has restarted and is running :D")
   upchannel.send(upembed)
